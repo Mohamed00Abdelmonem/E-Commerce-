@@ -1,0 +1,38 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<br> <br>
+<div class="container">
+
+<div class="row row-cols-1 row-cols-md-3">
+
+  {% if Furniture %}
+  {% for Furniture_only in Furniture %}
+  <div class="col mb-4">
+    <div class="card" style="width: 20rem;" >
+      <img src="{{ Furniture_only.photo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ Furniture_only.name}}</h5>
+        <p class="card-text">{{ Furniture_only.description}}</p>
+        <p class="card-text"> <mark style="background-color: green; color: white;"> {{ Furniture_only.price}} L.E </mark></p>
+      </div>
+    </div>
+  </div>
+
+
+
+    {% endfor %}
+    {% else %}
+     <p>No Products Available Furniture</p>
+    {% endif %}
+
+  </div>
+  </div>
+
+
+
+
+{% endblock  %}

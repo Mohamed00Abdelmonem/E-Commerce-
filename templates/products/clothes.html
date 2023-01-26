@@ -1,0 +1,38 @@
+{% extends 'products/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<br> <br>
+<div class="container">
+
+
+<div class="row row-cols-1 row-cols-md-3">
+
+  {% if Clothes %}
+   {% for clothes in Clothes %}
+  <div class="col mb-4">
+    <div class="card" style="width: 20rem;" >
+      <img src="{{ clothes.photo.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ clothes.name}}</h5>
+        <p class="card-text">{{ clothes.description}}</p>
+        <p class="card-text"><mark style="background-color: green; color: white;">{{ clothes.price}} L.E</></p>
+      </div>
+    </div>
+  </div>
+
+
+
+    {% endfor %}
+    {% else %}
+     <p>No Products Available Clothes</p>
+    {% endif %}
+
+  </div>
+  </div>
+
+
+
+{% endblock  %}
